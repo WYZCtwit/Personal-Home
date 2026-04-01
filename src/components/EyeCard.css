@@ -1,0 +1,146 @@
+/* ═══════════════════════════════════════════
+   EyeCard — Editorial Dark Edition
+   ═══════════════════════════════════════════ */
+
+.eye-card {
+  width: 280px;
+  height: 380px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-subtle);
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  transition: border-color var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.eye-card:hover {
+  border-color: var(--border-accent);
+  box-shadow: 0 0 80px rgba(232, 185, 49, 0.08), var(--shadow-elevated);
+}
+
+.eye-card__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2.5rem;
+  pointer-events: none;
+  position: relative;
+  z-index: 2;
+}
+
+.eye-card__label {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.25em;
+  font-weight: 700;
+  color: var(--accent);
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.eye-card__label-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 10px var(--accent-glow-strong);
+}
+
+.eye-card__sclera {
+  width: 140px;
+  height: 80px;
+  background: var(--bg-base);
+  border-radius: 100%;
+  box-shadow:
+    inset 0 4px 12px rgba(0, 0, 0, 0.4),
+    0 0 0 1px var(--border-subtle);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  transition: transform 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.eye-card__iris {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, var(--accent) 0%, var(--accent-dim) 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow:
+    inset 0 0 10px rgba(0, 0, 0, 0.3),
+    0 0 20px var(--accent-glow);
+}
+
+.eye-card__pupil {
+  width: 22px;
+  height: 22px;
+  background: #080808;
+  border-radius: 50%;
+  position: relative;
+}
+
+.eye-card__flare {
+  width: 6px;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+  position: absolute;
+  top: 4px;
+  left: 4px;
+}
+
+.eye-card__desc {
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: var(--text-secondary);
+  letter-spacing: 0.05em;
+}
+
+/* Corner brackets */
+.eye-card__corner {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  pointer-events: none;
+}
+
+.eye-card__corner--tl {
+  top: 16px;
+  left: 16px;
+  border-top: 1px solid var(--accent);
+  border-left: 1px solid var(--accent);
+  opacity: 0.4;
+}
+
+.eye-card__corner--br {
+  bottom: 16px;
+  right: 16px;
+  border-bottom: 1px solid var(--accent);
+  border-right: 1px solid var(--accent);
+  opacity: 0.4;
+}
+
+/* Grid background pattern */
+.eye-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(var(--border-subtle) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border-subtle) 1px, transparent 1px);
+  background-size: 28px 28px;
+  opacity: 0.4;
+  z-index: 0;
+}

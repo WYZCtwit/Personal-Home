@@ -1,0 +1,52 @@
+/* ═══════════════════════════════════════════
+   Marquee Strip — Running Text
+   ═══════════════════════════════════════════ */
+
+.marquee-section {
+  padding: 2rem 0;
+  overflow: hidden;
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+  position: relative;
+  z-index: 10;
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+}
+
+.marquee-content {
+  display: flex;
+  align-items: center;
+  animation: marquee 30s linear infinite;
+  width: max-content;
+}
+
+.marquee-item {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  flex-shrink: 0;
+  padding: 0 1rem;
+}
+
+.marquee-text {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+  white-space: nowrap;
+  transition: color 0.3s;
+}
+
+.marquee-item:hover .marquee-text {
+  color: var(--accent);
+}
+
+.marquee-sep {
+  color: var(--accent);
+  font-size: 0.5rem;
+  opacity: 0.4;
+}
